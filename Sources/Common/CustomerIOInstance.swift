@@ -150,8 +150,6 @@ public protocol CustomerIOInstance: AutoMockable {
      Track a push metric
      */
     func trackMetric(deliveryID: String, event: Metric, deviceToken: String)
-  
-    // func setNetworkEnabled(_ isEnabled: Bool)
 }
 
 /**
