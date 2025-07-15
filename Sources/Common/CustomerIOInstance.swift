@@ -170,7 +170,7 @@ public class CustomerIO: CustomerIOInstance {
         DIGraphShared.shared
     }
   
-    internal static var sdkConfig: SdkConfig = SdkConfig.Factory.create(logLevel: .debug)
+    public static var sdkConfig: SdkConfig = SdkConfig.Factory.create(logLevel: .debug)
 
     /**
      Singleton shared instance of `CustomerIO`. Convenient way to use the SDK.
