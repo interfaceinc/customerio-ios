@@ -32,7 +32,7 @@ public class UrlRequestHttpRequestRunner: HttpRequestRunner {
         session: URLSession,
         onComplete: @escaping (Data?, HTTPURLResponse?, Error?) -> Void
     ) {
-        guard config.isNetworkEnabled else { return }
+        guard !config.isNetworkPaused else { return }
 
         var request = URLRequest(url: params.url)
         request.httpMethod = params.method

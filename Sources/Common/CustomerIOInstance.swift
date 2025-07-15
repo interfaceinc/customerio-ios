@@ -272,7 +272,7 @@ public class CustomerIO: CustomerIOInstance {
         implementation?.trackMetric(deliveryID: deliveryID, event: event, deviceToken: deviceToken)
     }
   
-    public func setNetworkEnabled(_ enabled: Bool) {
-      CustomerIO.sdkConfig.isNetworkEnabled = enabled
+    public func setNetworkPaused(_ paused: Bool) {
+      CustomerIO.sdkConfig.isNetworkPaused = paused
     }
 }
