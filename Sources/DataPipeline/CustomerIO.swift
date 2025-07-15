@@ -60,10 +60,6 @@ public extension CustomerIO {
         DataPipeline.resetTestEnvironment()
     }
     #endif
-  
-    func setNetworkEnabled(_ enabled: Bool) {
-      CustomerIO.sdkConfig.isNetworkEnabled = enabled
-    }
 }
 
 private extension SDKConfigBuilderResult {
