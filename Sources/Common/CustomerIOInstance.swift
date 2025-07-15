@@ -150,6 +150,8 @@ public protocol CustomerIOInstance: AutoMockable {
      Track a push metric
      */
     func trackMetric(deliveryID: String, event: Metric, deviceToken: String)
+  
+    // func setNetworkEnabled(_ isEnabled: Bool)
 }
 
 /**
@@ -167,6 +169,8 @@ public class CustomerIO: CustomerIOInstance {
     private var diGraph: DIGraphShared {
         DIGraphShared.shared
     }
+  
+    internal static var sdkConfig: SdkConfig = SdkConfig.Factory.create(logLevel: .debug)
 
     /**
      Singleton shared instance of `CustomerIO`. Convenient way to use the SDK.

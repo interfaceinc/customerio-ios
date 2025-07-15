@@ -542,7 +542,7 @@ extension DIGraphShared {
     }
 
     private var newHttpRequestRunner: HttpRequestRunner {
-        UrlRequestHttpRequestRunner()
+        UrlRequestHttpRequestRunner(config: CustomerIO.sdkConfig)
     }
 
     // UserAgentUtil

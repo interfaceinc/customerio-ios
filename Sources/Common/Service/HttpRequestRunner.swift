@@ -17,6 +17,13 @@ public protocol HttpRequestRunner: AutoMockable {
 
 // sourcery: InjectRegisterShared = "HttpRequestRunner"
 public class UrlRequestHttpRequestRunner: HttpRequestRunner {
+  
+  private let config: SdkConfig
+  
+  public init(config: SdkConfig) {
+    self.config = config
+  }
+  
     /**
      Note: When mocking request, open JSON file, convert to `Data`.
      */
@@ -25,6 +32,8 @@ public class UrlRequestHttpRequestRunner: HttpRequestRunner {
         session: URLSession,
         onComplete: @escaping (Data?, HTTPURLResponse?, Error?) -> Void
     ) {
+        guard config.isNetworkEnabled else { return }
+
         var request = URLRequest(url: params.url)
         request.httpMethod = params.method
         request.httpBody = params.body

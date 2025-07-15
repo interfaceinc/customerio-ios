@@ -11,6 +11,8 @@ public extension CustomerIO {
         // SdkConfig isn't currently stored anywhere since it wasn't required. If needed later, we
         // can introduce an option to store and retrieve it.
         let (sdkConfig, cdpConfig, deepLinkCallback) = config.deconstruct()
+      
+        self.sdkConfig = sdkConfig
 
         // Sets deeplink callback, used by whole of SDK
         if let deepLinkCallback {
@@ -58,6 +60,10 @@ public extension CustomerIO {
         DataPipeline.resetTestEnvironment()
     }
     #endif
+  
+    func setNetworkEnabled(_ enabled: Bool) {
+      CustomerIO.sdkConfig.isNetworkEnabled = enabled
+    }
 }
 
 private extension SDKConfigBuilderResult {

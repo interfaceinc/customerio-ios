@@ -36,6 +36,7 @@ public struct SdkConfig {
     }
 
     public let logLevel: CioLogLevel
+    public var isNetworkEnabled: Bool = true
 
     // private init to ensure `SdkConfig` can be created using `SdkConfig.Factory` only.
     private init(logLevel: CioLogLevel?) {
