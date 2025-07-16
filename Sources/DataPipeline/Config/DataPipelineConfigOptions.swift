@@ -33,4 +33,6 @@ public struct DataPipelineConfigOptions {
 
     /// Plugins identified based on configuration provided by the user
     let autoConfiguredPlugins: [Plugin]
+  
+    public let isNetworkPaused: Bool
 }
