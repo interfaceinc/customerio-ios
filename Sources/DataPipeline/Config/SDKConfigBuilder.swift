@@ -200,11 +200,11 @@ public class SDKConfigBuilder {
             autoAddCustomerIODestination: autoAddCustomerIODestination,
             flushPolicies: flushPolicies,
             trackApplicationLifecycleEvents: trackApplicationLifecycleEvents,
-            isNetworkPaused: isNetworkPaused,
             autoTrackDeviceAttributes: autoTrackDeviceAttributes,
             migrationSiteId: migrationSiteId,
             screenViewUse: screenViewUse,
-            autoConfiguredPlugins: configuredPlugins
+            autoConfiguredPlugins: configuredPlugins,
+            isNetworkPaused: isNetworkPaused
         )
 
         if deepLinkCallback == nil {
