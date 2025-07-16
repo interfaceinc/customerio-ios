@@ -45,6 +45,7 @@ public class SDKConfigBuilder {
     private var migrationSiteId: String?
     private var screenViewUse: ScreenView = .all
     private var deepLinkCallback: DeepLinkCallback?
+    private var isNetworkPaused: Bool = false
 
     /// Initializes new `SDKConfigBuilder` with required configuration options.
     /// - Parameters:
@@ -163,6 +164,12 @@ public class SDKConfigBuilder {
         deepLinkCallback = callback
         return self
     }
+  
+    @discardableResult
+    public func networkPaused(_ paused: Bool) -> SDKConfigBuilder {
+      isNetworkPaused = paused
+      return self
+    }
 
     @available(iOSApplicationExtension, unavailable)
     public func build() -> SDKConfigBuilderResult {
@@ -196,7 +203,8 @@ public class SDKConfigBuilder {
             autoTrackDeviceAttributes: autoTrackDeviceAttributes,
             migrationSiteId: migrationSiteId,
             screenViewUse: screenViewUse,
-            autoConfiguredPlugins: configuredPlugins
+            autoConfiguredPlugins: configuredPlugins,
+            isNetworkPaused: isNetworkPaused
         )
 
         if deepLinkCallback == nil {

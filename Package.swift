@@ -46,7 +46,7 @@ let package = Package(
         
 
         // Make sure the version number is same for DataPipelines cocoapods.
-        .package(name: "CioAnalytics", url: "https://github.com/customerio/cdp-analytics-swift.git", .exact("1.7.3+cio.1"))
+        .package(name: "CioAnalytics", url: "https://github.com/interfaceinc/cdp-analytics-swift.git", .branchItem("feature/network-toggle"))
     ],
     targets: [ 
         // Common - Code used by multiple modules in the SDK project.

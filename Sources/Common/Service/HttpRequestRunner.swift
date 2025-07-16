@@ -25,6 +25,8 @@ public class UrlRequestHttpRequestRunner: HttpRequestRunner {
         session: URLSession,
         onComplete: @escaping (Data?, HTTPURLResponse?, Error?) -> Void
     ) {
+        guard !CustomerIO.sdkConfig.isNetworkPaused else { return }
+
         var request = URLRequest(url: params.url)
         request.httpMethod = params.method
         request.httpBody = params.body

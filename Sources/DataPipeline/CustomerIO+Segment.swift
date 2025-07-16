@@ -14,6 +14,14 @@ public extension CustomerIO {
     var anonymousId: String {
         DataPipeline.shared.analytics.anonymousId
     }
+  
+    var networkPaused: Bool {
+      get {
+        DataPipeline.shared.analytics.networkPaused
+      } set {
+        DataPipeline.shared.analytics.networkPaused = newValue
+      }
+    }
 
     /// Returns the userId that was specified in the last identify call.
     var userId: String? {
@@ -63,6 +71,11 @@ public extension CustomerIO {
     func waitUntilStarted() {
         DataPipeline.shared.analytics.waitUntilStarted()
     }
+  
+    func setNetworkPaused(_ paused: Bool) {
+      CustomerIO.sdkConfig.isNetworkPaused = paused
+      networkPaused = paused
+    }
 }
 
 extension DataPipelineConfigOptions {
@@ -70,6 +83,7 @@ extension DataPipelineConfigOptions {
         let result = Configuration(writeKey: cdpApiKey)
         result.trackApplicationLifecycleEvents(trackApplicationLifecycleEvents)
         result.flushAt(flushAt)
+        result.networkPaused(isNetworkPaused)
         result.flushInterval(flushInterval)
         // Set settings to nil as we don't want to add default Segment integration
         result.defaultSettings(nil)
