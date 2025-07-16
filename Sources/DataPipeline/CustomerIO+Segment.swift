@@ -70,6 +70,7 @@ extension DataPipelineConfigOptions {
         let result = Configuration(writeKey: cdpApiKey)
         result.trackApplicationLifecycleEvents(trackApplicationLifecycleEvents)
         result.flushAt(flushAt)
+        result.networkPaused(isNetworkPaused)
         result.flushInterval(flushInterval)
         // Set settings to nil as we don't want to add default Segment integration
         result.defaultSettings(nil)
