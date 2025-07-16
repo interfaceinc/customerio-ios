@@ -14,6 +14,14 @@ public extension CustomerIO {
     var anonymousId: String {
         DataPipeline.shared.analytics.anonymousId
     }
+  
+    var networkPaused: Bool {
+      get {
+        DataPipeline.shared.analytics.networkPaused
+      } set {
+        DataPipeline.shared.analytics.networkPaused = newValue
+      }
+    }
 
     /// Returns the userId that was specified in the last identify call.
     var userId: String? {
@@ -62,6 +70,11 @@ public extension CustomerIO {
     /// a background thread if needed.
     func waitUntilStarted() {
         DataPipeline.shared.analytics.waitUntilStarted()
+    }
+  
+    func setNetworkPaused(_ paused: Bool) {
+      CustomerIO.sdkConfig.isNetworkPaused = paused
+      networkPaused = paused
     }
 }
 
