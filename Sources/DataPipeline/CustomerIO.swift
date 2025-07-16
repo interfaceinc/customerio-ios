@@ -12,7 +12,7 @@ public extension CustomerIO {
         // can introduce an option to store and retrieve it.
         let (sdkConfig, cdpConfig, deepLinkCallback) = config.deconstruct()
       
-      self.sdkConfig.isNetworkPaused = cdpConfig.isNetworkPaused
+        self.sdkConfig.isNetworkPaused = cdpConfig.isNetworkPaused
 
         // Sets deeplink callback, used by whole of SDK
         if let deepLinkCallback {
