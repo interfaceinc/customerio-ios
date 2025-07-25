@@ -63,6 +63,15 @@ public extension CustomerIO {
     func waitUntilStarted() {
         DataPipeline.shared.analytics.waitUntilStarted()
     }
+
+    func setNetworkPaused(_ paused: Bool) {
+      if paused {
+        DataPipeline.shared.analytics.removeAllFlushPolicies()
+      } else {
+        DataPipeline.shared.analytics.add(flushPolicy: CountBasedFlushPolicy())
+        DataPipeline.shared.analytics.add(flushPolicy: IntervalBasedFlushPolicy())
+      }
+    }
 }
 
 extension DataPipelineConfigOptions {
@@ -78,7 +87,6 @@ extension DataPipelineConfigOptions {
         result.autoAddSegmentDestination(false)
         result.apiHost(apiHost)
         result.cdnHost(cdnHost)
-        result.flushPolicies(flushPolicies)
         return result
     }
 }
